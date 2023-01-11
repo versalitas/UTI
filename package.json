@@ -1,0 +1,19 @@
+{
+  "name": "uti",
+  "version": "1.0.0",
+  "description": "theatrical chat",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/versalitas/uti.git"
+  },
+  "author": "MK  &  Mar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/versalitas/uti/issues"
+  },
+  "homepage": "https://github.com/versalitas/uti#readme"
+}
