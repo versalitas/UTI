@@ -1,37 +1,65 @@
+# UTI et ABUTI 
 
-## Theatrical chat with react, node.js, express and socket.io.
+This project is trying to convert an existing app conceived as "big pile of mud"(antipattern) into a thing of beauty.
+## Description
 
-CHALLENGE: Convert "big ball of mud" app into a thing of beauty.
+This application is a theatrical chat. Every chat has a beginning and an end. The director controlls the show from the endpoint 'uti.cat/chatDirector', the Users access the chat 'uti.cat/' where they can send messages. The Users' messages and the Director's 'stage directions' are visible in the chat window in 'uti.cat/show'. 
 
-You need node.js, npm and an IDE of your choice installed.
+The project is created with
+    - **React** / frontend
+    - **Node.js** / backend
+    - **Express** / server and endpoints
+    - **Socket.io** / websockets for the chat
+   
+## Prerequisites
 
-Clone the repoistary to local.
-Install dependencies.
+Install technology as listed in your system:
+
+- [Node.js](https://nodejs.org/en/download/) 
+- [NPM](https://www.npmjs.com/) 
+
+##  Getting Started   
+### Installing
+
+> **Step 1** - Clone the project to your local machine using your preferred IDE:
+
+```
+git repo clone 
+
+```
+
+> **Step 2** - Install project dependencies:
 
 ```
 npm install
-
 ```
-Change the ip in src/settings.js to the ip of your computer.
+
+### Setings
+
+> **Step 3** - Change the ip in src/settings.js to the ip of your computer.
 
 ```
 exports.ip = "192.168.1.44";
 ```
-Run from inside the UTI folder
+
+### Run the Project
+
+Run from inside the **UTI** folder
+
 ```
 cd uti
 ```
 
-Initiate frontend
+Run frontend
 
 ```
 ■ npm run build
 ```
 
-Initiate server.
+Initiate server
 
 ```
-● sudo node server/app.js
+sudo node server/app.js
 
 ```
 
@@ -42,10 +70,13 @@ sudo kill `sudo lsof -t -i:80`
 
 ```
 
+Have a look:
+
+´´´
 The admin is run from <your-ip-setting>/chatDirector
 The users access from <your-ip-setting>
 and the show can be seen in <your-ip-setting>/
-
+´´´
 
 
 
