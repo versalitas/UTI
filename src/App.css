@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif&display=swap');
+/* VARIABLES */
+
+:root {
+
+  --blue:rgb(90, 152, 177);
+  --chat-input-color:#373738;
+ 
+}
+
+
+body {
+height:100vh;
+width:calc(100vw - 2rem);
+background-color:black;
+color:whitesmoke;
+box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+/*
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.sendToChatIcon{
+  width:35px;
+  height:35px;
+}
+
+#chatSendButton{
+  height:35px;
+}
+
+.messageDirector{
+    color:  blue;
+    font-style: italic;
+}
+.dateMessage{
+    color:  #cdcdcd;
+}
+*/
+
+
+/*
+.inputTextArea{
+    width:                          calc(100%-20em);
+    height:                         35px;
+    margin-left: 2em;
+}
+*/

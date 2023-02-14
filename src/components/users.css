@@ -1,0 +1,42 @@
+/*
+  #users ul {
+    overflow-y: scroll;
+  }
+*/
+  #users ul, #users li {
+    list-style-type: none;
+
+    
+  }
+  
+  #users li {
+    padding: 0.25em 0.25em;
+    font-family: sans-serif;
+    font-size: 0.8em;
+     }
+
+    #users li.guest {
+      color: red; }
+
+   
+      
+  
+.userActive {
+  text-decoration: none;
+}
+
+.userDisactivated {
+  text-decoration: line-through;
+  color: red; }
+
+.buttonActiveRole_director {
+  display: inline; 
+}
+
+.buttonActiveRole_projector {
+  display: none; 
+}
+
+#users {
+  width:100%;
+}
