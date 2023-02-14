@@ -17,7 +17,7 @@ Change the ip in src/settings.js to the ip of your computer.
 ```
 exports.ip = "192.168.1.44";
 ```
-Run from inside the uti folder
+Run from inside the UTI folder
 ```
 cd uti
 ```
