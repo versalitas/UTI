@@ -57,14 +57,14 @@ Run frontend
 Initiate server
 
 ```
-sudo node server/app.js
+■ sudo node server/app.js
 
 ```
 
 If port 80 is blocked:
 
 ```
-sudo kill `sudo lsof -t -i:80`
+■ sudo kill `sudo lsof -t -i:80`
 
 ```
 
@@ -73,7 +73,7 @@ Have a look:
 ´´´
 The admin is run from <your-ip-setting>/chatDirector
 The users access from <your-ip-setting>
-and the show can be seen in <your-ip-setting>/
+and the show can be seen in <your-ip-setting>/show
 ´´´
 
 
