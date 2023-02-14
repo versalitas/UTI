@@ -1,0 +1,129 @@
+
+.buttonField {
+  font-family: 'PT Sans', sans-serif;
+  font-size:1.4rem;
+  display: block;
+  float: left;
+  margin-right: 1em; 
+  margin-top:0.4em;
+}
+
+.buttonField button {
+   font-family: 'PT Sans', sans-serif;
+   background-color:var(--blue);
+   height:1.4rem;
+   width:1.4rem;
+   font-size:1rem;
+   border:none;
+   cursor: pointer; 
+   margin-left:1em;
+   
+}
+
+.directorContainer{
+  display: flex;
+  flex-direction:row;
+  justify-content: left;
+  padding:1em 0 1em 1em;
+  margin:1.2em 0 1.2em 1.2em;
+  font-family: 'PT Sans', sans-serif;
+  font-size:1.4rem;
+}
+
+
+.chatBodyContainer {
+  width:65vw;
+  max-width:65vw;
+  align-content: center;
+  padding:0.5em 0 0.5em 0.5em;
+
+}
+
+.directorSide{
+  width:35vw;
+  max-width:35vw;
+  float:left;
+  padding:0.5em 0 0.5em 0.5em;
+}
+
+
+
+.userDirectorContainer {
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  width:65vw;
+  padding-right:0.5em;
+  height:75vh;
+
+  position: relative;
+  overflow-y:hidden;
+}
+
+
+.containerCounterField {
+  font-family: 'PT Sans', sans-serif;
+  font-size:1.2rem;
+  display: block;
+  float: left;
+  margin-right: 1em; 
+  margin-bottom:0.2em;
+}
+
+hr {
+  size:1px;
+}
+
+.directorMain {
+  font-family: 'PT Serif', serif;
+  height:75vh;
+  width:50vw;
+  position: relative;
+  padding-bottom: 1rem;
+  padding-top:0.5em;
+  overflow-y:hidden;
+  }
+
+.messageDirector{
+  margin-top:0 !important;
+
+}
+
+.directorInput {
+  position:fixed;
+  bottom:0;
+  align-self: center;
+  padding-bottom:2rem;
+  margin:auto;
+  width:60%;
+
+}
+
+
+.userSide {
+    height:100%;
+    max-height:100%;
+    width:15vw;
+    max-width:20vw;
+    float:right;
+    padding-left:0.8em;
+    font-size:1.2rem;
+    overflow-y:scroll;
+    padding-top:2rem;
+}
+
+.userside li:hover {
+  color:var(--blue); 
+}
+
+#chatList {
+  margin-top:0!important;
+}
+
+ #buttonContainer{
+   padding-top:1em;
+   float:left;
+   position:absolute;
+   bottom:0;
+   margin-bottom:3rem;
+ }

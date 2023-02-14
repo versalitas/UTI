@@ -1,0 +1,115 @@
+/*
+.showContainer {
+  display: flex;
+  flex-direction:row;
+  justify-content: left;
+  width: calc(100%-2em);
+  max-height: calc(100%-2em);
+  padding:2rem;
+
+}
+  .chatSide {
+  font-size: 1.6em;
+  width:40%;
+  max-width:40%;
+  max-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:left;
+  font-family: 'PT Sans', sans-serif;
+}
+
+*/
+
+.showContainer {
+  display: inline-block;
+  justify-content: left;
+  width: calc(100%-2em);
+  max-height: calc(100%-2em);
+  overflow-y:hidden;
+  padding:2rem 3rem;
+}
+.chatSide {
+  font-size: 1.6em;
+  width:40%;
+  max-width:40%;
+  height: 84vh;
+ position: relative;
+ float:left;
+ padding-bottom: 1rem;
+ margin-top:1rem;
+ overflow-y: hidden;
+}
+
+.chatMain {
+ font-family: 'PT Serif', serif;
+ height: 84vh;
+ width:60%;
+ position: relative;
+ padding-bottom: 1rem;
+ margin-top:1rem;
+ overflow-y: hidden;
+}
+
+
+.chatSide #chatSceneTitle {
+  padding: 0.5em 0.5em;
+  height:55%;
+  max-height:55%;
+  font-family: 'PT Sans', sans-serif;
+ 
+ 
+  }
+
+  .chatSide #sceneBubble{
+    float:left;
+    
+    margin: 1.15rem 0 1.15rem auto;
+    padding: .4rem 1rem;
+    white-space:pre-wrap;
+    word-break:break-word;
+    border-radius:0.9em;
+    background-color:tomato;
+  }
+
+  .chatSide #userContainer {
+    padding: 0.5em 0;
+    height:45%;
+    max-height:45%;
+    font-family: 'PT Sans', sans-serif; 
+    overflow-block:hidden;
+  }
+
+
+/*
+ .chatSide #chatUsers {
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-block: hidden;
+  margin-bottom:1.5rem;
+  height:45%;
+  max-height:45%;
+  font-size:1.3rem;
+}  
+*/
+
+
+
+/* Extra big screen devices hdfull (1920px and above) */
+@media only screen and (min-width: 1920px) {
+  
+
+   .chatSide #chatSceneTitle{
+    font-size: 1.3em;
+    
+    
+  }
+  
+ 
+}
+
+
+
+ 
+
+

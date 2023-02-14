@@ -1,0 +1,87 @@
+
+
+.chatContainer {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  margin:auto;
+  padding:1rem;
+ }
+
+ .chatHeader {
+  display:flex;
+  color:whitesmoke;
+  flex-direction:column;
+  align-items: center;
+  
+  font-weight: bold;
+  margin: 1em auto auto auto; 
+  font-family: 'PT Sans', sans-serif;
+  
+ 
+}
+
+
+  .chatInput {
+    
+    bottom:0;
+    position:fixed;
+    margin-bottom:0.5rem;
+  }
+  
+  .chatLogo{
+    max-height:14em;
+    max-width: 14em;
+    margin:auto;
+  }
+
+  .chatScene{
+    font-weight:bold;
+    margin: auto;
+    width:80%;
+    margin-bottom:2em;
+    font-size: 1.4rem;
+  }
+
+
+  .allRolesAssigned{
+    width:80%;
+    color:red;
+    font-style:italic;
+    margin-bottom:2em;
+    margin:auto;
+    font-size:1.2rem;
+  }
+
+ 
+
+  .blockedInputMessage{
+    font-size:1.2rem;
+    font-family: 'PT Serif', serif;
+    text-align:right;
+  }
+  
+
+ 
+  
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  .chatInput {
+    
+    bottom:0;
+    position:fixed;
+    margin-bottom:2rem;
+  }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+   
+
+  .chatInput {
+    
+    bottom:0;
+    position:fixed;
+    margin-bottom:2rem;
+  }
+}

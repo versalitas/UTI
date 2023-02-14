@@ -1,0 +1,326 @@
+[{
+		"titulo": "Una sala de La Pedrera abans que comenci la funció.",
+		"descripcion": "És mitja tarda. El públic treu de la butxaca el mòbil i es connecta a la wi-fi Convidats_Pedrera / Convidats_fila_1_2 / Convidats_fila_3_4. La contrasenya és pedrer@12k17.  Al navegador poseu la direcció web 172.31.0.110 . El públic escriu. Entren els personatges.",
+		"personajes": [
+			"ESTUDIANT DE TEATRE",
+			"HOME SILENCIÓS",
+			"UNA COMUNISTA",
+			"UNA TURISTA CANADENCA",
+			"ALGÚ QUE NO TÉ MÒBIL PERÒ QUE L'HA DEMANAT A ALGÚ ALTRE PER ESCRIURE EN EL XAT",
+			"EMFOLLESIADÉU",
+			"NOÈLIA",
+			"HILÀRIA",
+			"CÒNJUGE MILEURISTA",
+			"MARIA",
+			"CÒNJUGE A L'ATUR",
+			"CARLES SANTOS",
+			"MELCIOR",
+			"INFANTA LEONOR",
+			"GUÀRDIA CIVIL",
+			"MOLLY",
+			"KARL MARX",
+			"JOSEP",
+			"VELLA PIANISTA",
+			"INFLUENCER",
+			"MARIONA CARULLA",
+			"UN MANIFESTANT",
+			"ÀNGELS MARGARIT",
+			"ESPIA DE FOCUS",
+			"REPRESENTANT DE L'ASSOCIACIÓ D'ESPECTADORS",
+			"BUSCOCANYA",
+			"AMIGA CHONI",
+			"DON FELIPE",
+			"PERIODISTA DE TELE5",
+			"COR DE METGESSES I INFERMERES",
+			"EL NEN JESÚS",
+			"CREATIU",
+			"SÍ",
+			"LA DONA D'UN PRES"
+		],
+		"personajesExtra": [],
+		"total_mensajes": 240,
+		"frase_final_escena": "Fi del pròleg. Teló."
+	},
+
+	{
+		"titulo": "ESCENA 10: Una sala de xat de la web de contactes sexuals USOS I ABUSOS.",
+		"descripcion": "5:48 de la matinada. Comença a despuntar el dia. Queden tanmateix algunes persones xatejant. Entra 1 personatge.",
+		"personajes": [
+			"EMFOLLESIADÉU"
+		],
+		"personajesExtra": [
+			"BADALONACOMPLET",
+			"EXHIBICIONISTA40",
+			"PIANISTAVOLTOCAR",
+			"BURNING_RAVAL",
+			"HETEROCURIÓS",
+			"FINAL-FELIÇ35",
+			"SINMALOSROLLOS",
+			"FESTA_BLANCA",
+			"BUSCOCANYA",
+			"AMISTAT",
+			"2PAIOS_EN_COTXE",
+			"EIXAMPLE/ARA",
+			"CABRÓ_XXL",
+			"NIÑATOHETERO",
+			"SOLVENT60"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "EMFOLLESIADÉU ja no escriu res. Mira la pantalla per superstició. S'adorm al sofà. El Teló baixa lent i xerricant."
+	}, {
+		"titulo": "ESCENA 9. Terrassa d'un Pianobar a la vora del mar.",
+		"descripcion": "El sol està sortint. El local és buit, amb signes d'una nit de festa. 2 dones assegudes en una tauleta. És evident que s'han passat la nit parlant. Una d'elles ha estat guardonada amb el premi de poesia Carles Riba.",
+		"personajes": [
+			"NOÈLIA",
+			"HILÀRIA"
+		],
+		"personajesExtra": [
+			"GAT",
+			"CAMBRER"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Surten del pianobar. Passegen per la platja en silenci. Baixa el Teló abans que es vegi si es besen o no."
+	},
+
+	{
+		"titulo": "ESCENA 8. Saló-menjador-cuina d'un pis de protecció oficial a la Meridiana.",
+		"descripcion": "9 del matí. En el centre de l'habitació, encara sense muntar, les peces d'un piano d'IKEA model Månsken –llum de lluna–. 3 personatges s'arromanguen.",
+		"personajes": [
+			"CÒNJUGE MILEURISTA",
+			"CÒNJUGE A L'ATUR",
+			"CARLES SANTOS"
+		],
+		"personajesExtra": [
+			"AMIGA CHONI"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Per la finestra es veu com s'estavella un helicòpter de la policia. Ningú no se n'adona. Els personatges segueixein embadalits mirant les fotos dels feliços nens suecs tocant el piano a la vora del llac resplandent del catàleg d'IKEA. Teló."
+	},
+
+	{
+		"titulo": "ESCENA 7. Un estable a Betlem, Palestina.",
+		"descripcion": "Matí de l'any zero de l'era cristiana. Passa el cometa Halley. Un ase i un bou de cartró-pedra són a dreta i esquerra del grup protagonista. 4 personatges.",
+		"personajes": [
+			"MELCIOR",
+			"MARIA",
+			"JOSEP",
+			"EL NEN JESÚS"
+		],
+		"personajesExtra": [
+			"UNA COMUNISTA"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Un franctirador de l'exèrcit israelià comença a disparar. Cauen el Nen Jesús i Maria. Els altres surten corrents. Teló."
+	},
+
+	{
+		"titulo": "ESCENA 6. Palau reial de la Zarzuela.",
+		"descripcion": "Dinar familiar en el salonet groc. Retrats de caça a les parets. Un autorretrat de Goya. Per la porta del fons s'intueix la sala de música. La família està menjant en porcellana Lladró el tradicional Cocido Madrileño. 5 personatges.",
+		"personajes": [
+			"INFANTA LEONOR",
+			"DOÑA LETIZIA, REINA ACTUAL",
+			"DON FELIPE, REI",
+			"TELEVISOR",
+			"AUTORRETRAT DE GOYA"
+		],
+		"personajesExtra": [
+			"MINYONA GUINEANA",
+			"DOÑA SOFÍA, EX-REINA"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "A Don Felipe se li ha travessat el Cocido. S'aixeca de taula per enregistrar un missatge a la Nació. Darrera les càmeres, Doña Letizia i les nenes es parteixen de riure. Teló."
+	},
+
+	{
+		"titulo": "ESCENA 5. Gran sala de reunions de l'agència de publicitat Peanuts & Monkeys",
+		"descripcion": "Primera hora de la tarda. Taula de vidre coberta de dibuixos i fotografies. Se celebra una reunió per la campanya de la propera temporada del Mercat de les Flors, que suposaria un salt de qualitat per l'empresa. 6 personatges.",
+		"personajes": [
+			"CREATIU",
+			"CAP DE L'AGÈNCIA",
+			"ÀNGELS MARGARIT",
+			"MIREIA",
+			"INFLUENCER CONVIDAT",
+			"REPRESENTANT DE L'ASSOCIACIÓ D'ESPECTADORS"
+		],
+		"personajesExtra": [
+			"EMFOLLESIADÉU"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Una apagada general deixa a tots sense paraules i sense idees. Àngels Margarit aprofita el moment per posar-se a ballar entre les taules. Teló."
+	}, {
+		"titulo": "ESCENA 4. Interior burgès de finals del segle XIX.",
+		"descripcion": "Signes d'abandonament i melanconia tipus Txèkhov. El piano de cua està cobert de pols. 7 persones contemplen amb asserenat neguit el fracàs de les seves vides i del seu món. Les finestres s'obren al jardí. Es veu la Sagrada Família, les Torres Mapfre y el mar. Allò que veuen els pertany.",
+		"personajes": [
+			"MARIONA CARULLA",
+			"JAVIER GODÓ",
+			"VÍCTOR GRÍFOLS",
+			"ARQUEBISBE JOAN JOSEP OMELLA",
+			"VELL MAJORDOM",
+			"KARL MARX",
+			"UN CANICHE"
+		],
+		"personajesExtra": [
+			"LA MORT"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Els joves, probablement nets dels presents, es capbussen a la piscina del jardí. Són feliços però baixa igualment el Teló."
+	}, {
+		"titulo": "ESCENA 3. Exterior de la presó d'Estremera.",
+		"descripcion": "Vespre de tormenta. Arriba una caravana de cotxes que ha recorregut mitja Espanya. Les inclemències meteorològiques de l'Altiplà espanyol i una forta presència policial no desanima als presents. Entra el cor de personatges.",
+		"personajes": [
+			"DONA D'UN PRES",
+			"MANIFESTANT",
+			"CDR",
+			"FUNCIONARI DE PRESONS QUE ENTRA A TREBALLAR",
+			"GUÀRDIA CIVIL",
+			"HOME SILENCIÓS",
+			"COR DE MANIFESTANTS",
+			"PERIODISTA DE TELE5"
+		],
+		"personajesExtra": [
+			"VEU D'UN PRES"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "Les forces de l'ordre dispersen els manifestants a cops de porra. Fonts governamentals i els telenotícies nacionals denuncien les provocacions d'un petit grup de violents. Teló."
+	}, {
+		"titulo": "ESCENA 2. Sala d'un hospital de campanya després d'un atac a la ciutat.",
+		"descripcion": "És de nit. El cor de malalts i ferits jeu als llits improvisats. Els moribunds es criden entre ells, de vegades només per despedir-se dels amics i d'aquest món violent. L'exèrcit enemic celebra el triomf sense estalviar escarni als derrotats.",
+		"personajes": [
+			"DONA AMPUTADA",
+			"MORIBUND",
+			"VELLA PIANISTA",
+			"NENA ASMÁTICA",
+			"CARLES SANTOS",
+			"COR DE METGESSES I INFERMERES",
+			"COR GREC DE L'EXÈRCIT ENEMIC",
+			"MARIONA CARULLA EMBOJIDA",
+			"EMFOLLESIADÉU"
+		],
+		"personajesExtra": [
+			"UN ÀNGEL"
+		],
+		"total_mensajes": 240,
+		"frase_final_escena": "En abaixar-se el Teló, el públic se n'adona que un terrorista ha pintat quatre franges vermelles sobre la tela groga del Teló. Murmuris a la sala."
+	}, {
+		"titulo": "ESCENA 1. Dormitori irlandès a mitjanit.",
+		"descripcion": "Leopold acaba de llitar-se al costat de la seva dona Molly, que s'ha passat el dia enganyant-lo amb un altre. Esgotat per l'experiència aclaparadora de protagonitzar una novel·la de Joyce, Leopold dorm. Però la Molly és una dona inquieta, i la pàgina s'omple dels seus pensaments.",
+		"personajes": [
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ",
+			"SÍ (última veu interior que turmenta la Molly),"
+		],
+		"personajesExtra": [],
+		"total_mensajes": 240,
+		"frase_final_escena": "Teló Sí Teló"
+	}, {
+		"titulo": "ENLLOC.",
+		"descripcion": "Ningú no diu res perquè ningú no hi és. O potser és el món dels somnis on tots són finalment qualsevol. I ningú no diu res perquè tothom ha marxat. Si hi hagués hagut piano, el pianista hagués tocat l'últim piano del món. Però no hi ha piano. Tampoc no hi ha pianista. Aquí tots parlen, però no existeix ningú.",
+		"personajes": [""],
+		"personajesExtra": [],
+		"total_mensajes": 240,
+		"frase_final_escena": "Desapareixen també les pantalles. FI."
+	},
+
+	{
+		"titulo": "",
+		"descripcion": "",
+		"personajes": ["UNA VEU"],
+		"personajesExtra": [],
+		"total_mensajes": 240,
+		"frase_final_escena": ""
+	}
+]
