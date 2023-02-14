@@ -19,7 +19,7 @@ exports.ip = "192.168.1.44";
 ```
 Run from inside the uti folder
 ```
-cd Uti
+cd uti
 ```
 
 Initiate frontend
