@@ -45,30 +45,30 @@ exports.ip = "192.168.1.44";
 Run from inside the **uti** folder
 
 ```
-■ cd uti
+ cd uti
 ```
 
 Run frontend
 
 ```
-■ npm run build
+ npm run build
 ```
 
 Initiate server
 
 ```
-■ sudo node server/app.js
+ sudo node server/app.js
 
 ```
 
 If port 80 is blocked:
 
 ```
-■ sudo kill `sudo lsof -t -i:80`
+ sudo kill `sudo lsof -t -i:80`
 
 ```
 
-Have a look:
+■ Have a look:
 
 ```
 The admin is run from <your-ip-setting>/chatDirector,
