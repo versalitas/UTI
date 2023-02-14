@@ -1,46 +1,50 @@
 
 ## Chat teatral con frontend de react y backend de node, express, socket.io.
 
+CHALLENGE: Convert "big ball of mud" app into a thing of beauty.
 
-Un servidor para todo...
- 
-Clonar el proyecto
+You need node.js, npm and an IDE of your choice installed.
+
+Clone the repoistary to local.
+Install dependencies.
 
 ```
 npm install
 
 ```
-
-Cambiar ip en src/settings.js al ip del ordenador actual.
+Change the ip in src/settings.js to the ip of your computer.
 
 ```
 exports.ip = "192.168.1.44";
 ```
+Run from inside the uti folder
+```
+cd Uti
+```
 
-```
-cd UTI_ET_ABUTI
-```
-iniciar FRONTEND
+Initiate frontend
 
 ```
 ■ npm run build
 ```
-iniciar SERVIDOR
+
+Initiate server.
 
 ```
 ● sudo node server/app.js
 
 ```
 
-Si tienes el puerto duplicado.
-Matar puerto 80...
+If port 80 is blocked:
 
 ```
 sudo kill `sudo lsof -t -i:80`
 
 ```
 
-
+The admin is run from <your-ip-setting>/chatDirector
+The users access from <your-ip-setting>
+and the show can be seen in <your-ip-setting>/
 
 
 
