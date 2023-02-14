@@ -42,10 +42,10 @@ exports.ip = "192.168.1.44";
 
 ### Run the Project
 
-Run from inside the **UTI** folder
+Run from inside the **uti** folder
 
 ```
-cd uti
+■ cd uti
 ```
 
 Run frontend
@@ -70,11 +70,11 @@ If port 80 is blocked:
 
 Have a look:
 
-´´´
-The admin is run from <your-ip-setting>/chatDirector
-The users access from <your-ip-setting>
+```
+The admin is run from <your-ip-setting>/chatDirector,
+The users access from <your-ip-setting>/,
 and the show can be seen in <your-ip-setting>/show
-´´´
+```
 
 
 
