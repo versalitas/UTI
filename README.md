@@ -1,5 +1,5 @@
 
-## Chat teatral con frontend de react y backend de node, express, socket.io.
+## Theatrical chat with react, node.js, express and socket.io.
 
 CHALLENGE: Convert "big ball of mud" app into a thing of beauty.
 
