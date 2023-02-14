@@ -6,9 +6,13 @@ This project is trying to convert an existing app conceived as "big pile of mud"
 This application is a theatrical chat. Every chat has a beginning and an end. The director controlls the show from the endpoint 'uti.cat/chatDirector', the Users access the chat 'uti.cat/' where they can send messages. The Users' messages and the Director's 'stage directions' are visible in the chat window in 'uti.cat/show'. 
 
 The project is created with
+
     - **React** / frontend
+    
     - **Node.js** / backend
-    - **Express** / server and endpoints
+    
+    - **Express** / server 
+    
     - **Socket.io** / websockets for the chat
    
 ## Prerequisites
