@@ -37,7 +37,7 @@ let csvSounds = [];
 let totalSampleAudios = 70;
 let colorCounter = 0;
 const audio = './audios/CLAIR_DE_LUNE_TIEMPOS004_reduce.csv';
-const guion = 'guion_CULTUROPOLIS_1.json';
+const guion = './guion_CULTUROPOLIS_1.json';
 
 // ---------------------------------------------------------------
 // Global methods ************************************************
@@ -142,7 +142,7 @@ const getColor = (id) => {
   return '';
 }
  
-const getIsRoleActive (id) => {
+const getIsRoleActive = (id) => {
   for(let i=0;i<rolesAr.length;i++){
     if(rolesAr[i].id==id) return rolesAr[i].activated;
   }
@@ -184,7 +184,7 @@ const resetScene = (socket) => {
   },15000);
 }
 
-const changeScene= (socket) => {
+const changeScene = (socket) => {
   socket.broadcast.emit('fadeOutInChatScene',{});
   socket.emit('fadeOutInChatScene', {});
 
