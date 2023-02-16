@@ -2,37 +2,42 @@
 // Uti.cat (Roger special chat)
 // ---------------------------------------------------------------
 
-var express = require('express')
+const express = require('express')
 const router = express.Router();
+//TODO express.json()
 const bodyParser = require("body-parser");
-var app = express()
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 const uuid = require('node-uuid');
 const fs = require('fs');
+
 const parse = require('csv-parse');
-var path = require('path');
+const path = require('path');
 
 // ---------------------------------------------------------------
-// Global variables **********************************************
+// Global letiables **********************************************
 // ---------------------------------------------------------------
 
-var allMessages = [];
-var allClients = [];
-var users = [];
-var messageSceneCounter = 0;
-var sceneNumber = 0;
-var rolesAsigned = 0;
-var rolesAr = [];
-var lastMessageSend = 0;
-var timeBetweenMessages = 15000;
-var screenPosition = 1;
-var soundDirector = 0;
-var blockNewMessages = false;
-var csvSounds = [];
-var totalSampleAudios = 70;
+let allMessages = [];
+let allClients = [];
+let users = [];
+let messageSceneCounter = 0;
+let sceneNumber = 0;
+let rolesAsigned = 0;
+let rolesAr = [];
+//TODO investigate these variables
+let lastMessageSend = 0;
+let timeBetweenMessages = 15000;
+let screenPosition = 1;
+let soundDirector = 0;
+let blockNewMessages = false;
+let csvSounds = [];
+let totalSampleAudios = 70;
 let colorCounter = 0;
+const audio = './audios/CLAIR_DE_LUNE_TIEMPOS004_reduce.csv';
+const guion = 'guion_CULTUROPOLIS_1.json';
 
 // ---------------------------------------------------------------
 // Global methods ************************************************
@@ -40,44 +45,48 @@ let colorCounter = 0;
 
 // Assign random color to actor from color list
 const assignColor = () => {
-  if(colorCounter >= 7){
+  if( colorCounter >= 7 ){
     colorCounter = 0;
   }
   const colors = ['whitesmoke','lightpink','paleturquoise','peachpuff','LightSteelBlue','SandyBrown','lightgreen'];
-  let color = colors[colorCounter];
-  colorCounter+=1;
+  let color = colors[ colorCounter ];
+  colorCounter+= 1;
   return color;
 }
 
-function countMessage(socket){
+
+const countMessage = (socket) => {
   messageSceneCounter +=1;
   socket.broadcast.emit('messageSceneCounter', {messageSceneCounter:messageSceneCounter});
   socket.emit('messageSceneCounter', {messageSceneCounter:messageSceneCounter} );
 }
 
-function saveMessage(data){
+//saves message to CSV
+const saveMessage = (data) => {
   console.log("socket save");
   const fs = require('fs');
-  fs.appendFile('chat.csv', data+'\r\n', function (err) {
+  fs.appendFile('chat.csv', data+'\r\n', (err) => {
     if (!err) console.log('Saved!');
   });
 }
 
-function loadCSV(file){
-  var csvData = [];
+//loads CSV
+const loadCSV = (file) =>{
+  let csvData = [];
   fs.createReadStream(file)
     .pipe(parse({delimiter: ','}))
-    .on('data', function(csvrow) {
+    .on('data', (csvrow) => {
         csvData.push(csvrow);
     })
-    .on('end',function() {
+    .on('end', () => {
       csvSounds = csvData;//.reverse();
     });
 }
 
-function sendSceneInformation(socket){
+
+const sendSceneInformation = (socket) => {
   try{
-    var data =  {
+    let data =  {
       screenPosition:screenPosition,
       sceneTitle:objTheaterPlay[sceneNumber].titulo,
       sceneDescription: objTheaterPlay[sceneNumber].descripcion,
@@ -93,37 +102,39 @@ function sendSceneInformation(socket){
     };
     socket.broadcast.emit('sceneInfo', data);
     socket.emit('sceneInfo', data);
-  }catch(err){}
+  }catch(err){
+    //TODO add errorhandler
+  }
 }
 
-function sendUsers(socket){
+const sendUsers = (socket) => {
   socket.broadcast.emit('newUserList',rolesAr);
   socket.emit('newUserList',rolesAr);
 }
 
-function checkIfSocketHasNoneRole(id){
-  for(var i=0;i<rolesAr.length;i++){
-    if(rolesAr[i].id==id) return false;
+const checkIfSocketHasNoneRole = (id) => {
+  for(let i = 0;i<rolesAr.length;i++){
+    if(rolesAr[i].id == id) return false;
   }
   // not found id
   return true;
 }
 
-function getRole(id){
-  for(var i=0;i<rolesAr.length;i++){
+const getRole = (id) => {
+  for(let i=0;i<rolesAr.length;i++){
     if(rolesAr[i].id==id) return rolesAr[i].nickname;
   }
   return '';
 }
 
-function getSoundRole(id){
-  for(var i=0;i<rolesAr.length;i++){
+const getSoundRole = (id) => {
+  for(let i=0;i<rolesAr.length;i++){
     if(rolesAr[i].id==id) return rolesAr[i].sound;
   }
   return '';
 }
 
-// Get  color
+// Get color
 const getColor = (id) => {
   for(let i = 0; i < rolesAr.length; i++ ){
     if (rolesAr[i].id == id) return rolesAr[i].color;
@@ -131,23 +142,23 @@ const getColor = (id) => {
   return '';
 }
  
-function getIsRoleActive(id){
-  for(var i=0;i<rolesAr.length;i++){
+const getIsRoleActive (id) => {
+  for(let i=0;i<rolesAr.length;i++){
     if(rolesAr[i].id==id) return rolesAr[i].activated;
   }
   return false;
 }
 
-function deleteAllRolesAssigned(socket){
+const  deleteAllRolesAssigned = (socket) => {
   socket.broadcast.emit('assignActor','');
   socket.emit('assignActor','');
 }
 
-function sendLastScene(socket){
+const sendLastScene = (socket) => {
   blockNewMessages = true;
-  var randomMessagesAr = [];
-  for(var i=0;i<csvSounds.length;i++){
-    var indexRandom = Math.floor((allMessages.length-1) * Math.random());
+  let randomMessagesAr = [];
+  for(let i=0;i<csvSounds.length;i++){
+    let indexRandom = Math.floor((allMessages.length-1) * Math.random());
     //console.log('indexRandom:',indexRandom,'-',allMessages.length)
     randomMessagesAr.push(allMessages[indexRandom]);
   }
@@ -156,7 +167,7 @@ function sendLastScene(socket){
   socket.emit('startLastScene', randomMessagesAr);
 }
 
-function resetScene(socket){
+const resetScene = (socket) => {
   rolesAsigned = 0;
   messageSceneCounter = 0;
   deleteAllRolesAssigned(socket);
@@ -166,17 +177,18 @@ function resetScene(socket){
   // Save title and description scene
   saveMessage(objTheaterPlay[sceneNumber].titulo+" "+objTheaterPlay[sceneNumber].descripcion);
   // After 11s then allow to connect people to chat
-  setTimeout(function(){
+  setTimeout( () => {
     blockNewMessages = false;
     sendSceneInformation(socket);
+    //TODO convert to variable delay before allowing messages
   },15000);
 }
 
-function changeScene(socket){
+const changeScene= (socket) => {
   socket.broadcast.emit('fadeOutInChatScene',{});
   socket.emit('fadeOutInChatScene', {});
 
-  setTimeout(function(){
+  setTimeout( () => {
     if(objTheaterPlay.length>(sceneNumber+1)) sceneNumber +=1;
     resetScene(socket);
     console.log("Call Change Scene",sceneNumber ,objTheaterPlay.length-1);
@@ -184,6 +196,7 @@ function changeScene(socket){
     if(sceneNumber == objTheaterPlay.length-2){
       sendLastScene(socket);
     }
+    //TODO convert to variable delay before starting final scene
   },5000);
 }
 
@@ -191,10 +204,10 @@ function changeScene(socket){
 // JWT  **********************************************************
 // ---------------------------------------------------------------
 
-var passport = require('passport');
+const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const passportJWT = require('passport-jwt');
-require('dotenv').config() //read environment variables
+require('dotenv').config() //read environment letiables
 // ExtractJwt to help extract the token
 let ExtractJwt = passportJWT.ExtractJwt;
 
@@ -207,7 +220,7 @@ jwtOptions.secretOrKey = 'nZr4u7x!A%D*G-KaPdRgUkXp2s5v8y/B'; // 256 bit key
 jwtOptions.algorithm = 'RS256';
 
 // Lets create our strategy for web token
-let strategy = new JwtStrategy(jwtOptions, function(jwt_payload, next) {
+let strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
   console.log('Payload received', jwt_payload);
   //let user = getUser({ id: jwt_payload.id });
   //if (user) {
@@ -222,15 +235,15 @@ passport.use(strategy);
 // Load script ***************************************************
 // ---------------------------------------------------------------
 
-var objTheaterPlay;
-fs.readFile('guion_CULTUROPOLIS_1.json'/*'./guion_CAT.json'*/, 'utf8', function (err, data) {
+let objTheaterPlay;
+fs.readFile(guion , 'utf8', (err, data) => {
   if (err) throw err;
   objTheaterPlay = JSON.parse(data);
   console.log(objTheaterPlay[0].titulo);
 });
 
 // Load audios
-loadCSV('./audios/CLAIR_DE_LUNE_TIEMPOS004_reduce.csv');
+loadCSV(audio);
 
 
 // ---------------------------------------------------------------
@@ -242,13 +255,11 @@ app.use(express.static('./audios/'));
 
 // add router in express app
 app.use("/",router);
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
-var urlencodedParser= bodyParser.urlencoded({ extended: false });
+let urlencodedParser= bodyParser.urlencoded({ extended: false });
 
-http.listen(process.env.PORT || 80, function() {
-  var host = http.address().address
-  var port = http.address().port
+http.listen(process.env.PORT || 80, () => {
+  const host = http.address().address
+  const port = http.address().port
   console.log('App listening at http://%s:%s', host, port)
 });
 
@@ -256,16 +267,16 @@ http.listen(process.env.PORT || 80, function() {
 // Routes ********************************************************
 // ---------------------------------------------------------------
 
-router.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'), (err) => {
     if (err) res.status(500).send(err)
   })
 });
 
 // Redirect to all routes not defined
-router.post('/authlogin',urlencodedParser, function(req, res, next) {
+router.post('/authlogin', urlencodedParser, (req, res, next) => {
   const { password } = req.body;
-  console.log("password",password);
+  console.log("password", password);
   let userType = "none";
   if(password==="usiabus"){
     userType = "user";
@@ -278,7 +289,7 @@ router.post('/authlogin',urlencodedParser, function(req, res, next) {
   if(userType === "user" || userType === "director"){
     let payload = { userType: userType };
     let token = jwt.sign(payload, jwtOptions.secretOrKey);
-    var returnJson = { msg: 'ok', token: token }; 
+    let returnJson = { msg: 'ok', token: token }; 
     console.log("return jwt token",returnJson);
     res.json(returnJson);
   } else {
@@ -286,20 +297,20 @@ router.post('/authlogin',urlencodedParser, function(req, res, next) {
   }
 });
 
-router.get('/chatDirector', function(req, res) {
+router.get('/chatDirector', (req, res) =>  {
   console.log(__dirname);
   res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
     if (err) res.status(500).send(err)
   })
 });
 
-router.get('/chatProjector', function(req, res) {
+router.get('/chatProjector', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
     if (err) res.status(500).send(err)
   })
 });
 
-router.get('/login', function(req, res) {
+router.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'), function(err) {
     if (err) res.status(500).send(err)
   })
@@ -319,7 +330,7 @@ io.on('connection', function(socket) {
   console.log('Client connected to the WebSocket');
 
   // save socket client in a list
-  var me = {
+  let me = {
         id:         uuid.v4(),
         client:     socket.id,
         nickname:   null,
@@ -364,7 +375,7 @@ io.on('connection', function(socket) {
     if(blockNewMessages) return;
 
     if( checkIfSocketHasNoneRole(this.id) && objTheaterPlay[sceneNumber].personajes.length>rolesAsigned){
-      var nickname = objTheaterPlay[sceneNumber].personajes[rolesAsigned];
+      let nickname = objTheaterPlay[sceneNumber].personajes[rolesAsigned];
       socket.emit('assignActor',nickname);
       //rolesIdAr.push(this.id);
       let color = assignColor();
@@ -375,15 +386,15 @@ io.on('connection', function(socket) {
       sendUsers(socket);
     }
 
-    var currentTimestamp = Date.now();
-    var role = getRole(this.id);
-    var roleIsActive = getIsRoleActive(this.id);
-    var sound = getSoundRole(this.id);
+    let currentTimestamp = Date.now();
+    let role = getRole(this.id);
+    let roleIsActive = getIsRoleActive(this.id);
+    let sound = getSoundRole(this.id);
     let actorColor = getColor(this.id);
 
     if(role!="" && roleIsActive){
       console.log('Send text to chat');
-      var message = {'id':this.id,'type':'public','message':data, 'from':role,'sound':sound,'color':actorColor};
+      let message = {'id':this.id,'type':'public','message':data, 'from':role,'sound':sound,'color':actorColor};
       // Send message
       socket.broadcast.emit('newMessage', message );
       socket.emit('newMessage', message );
@@ -397,8 +408,8 @@ io.on('connection', function(socket) {
 
   socket.on('directorMessage', function (data) {
     // Send message
-    var messageStr = '('+data+')';
-    var message = {'message':messageStr,'type':'director', 'from':'director','sound':soundDirector};
+    let messageStr = '('+data+')';
+    let message = {'message':messageStr,'type':'director', 'from':'director','sound':soundDirector};
     socket.broadcast.emit('newMessage', message);
     socket.emit('newMessage', message);
     // Store message
@@ -425,7 +436,7 @@ io.on('connection', function(socket) {
 
   socket.on('disconnect', function() {
       console.log('Got disconnect!');
-      var i = allClients.indexOf(socket);
+      let i = allClients.indexOf(socket);
       allClients.splice(i, 1);
   });
 })
