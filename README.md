@@ -37,7 +37,7 @@ npm install
 > **Step 3** - Change the ip in src/settings.js to the ip of your computer.
 
 ```
-exports.ip = "192.168.1.44";
+exports.ip = "";
 ```
 
 ### Run the Project
