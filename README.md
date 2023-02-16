@@ -73,7 +73,7 @@ If port 80 is blocked:
 ```
 The admin is run from <your-ip-setting>/chatDirector,
 The users access from <your-ip-setting>/,
-and the show can be seen in <your-ip-setting>/show
+and the show can be seen in <your-ip-setting>/chatProjector
 ```
 
 
