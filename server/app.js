@@ -17,12 +17,13 @@ const parse = require('csv-parse');
 const path = require('path');
 
 // ---------------------------------------------------------------
-// Global letiables **********************************************
+// Global variables **********************************************
 // ---------------------------------------------------------------
 
 let allMessages = [];
 let allClients = [];
 let users = [];
+
 let messageSceneCounter = 0;
 let sceneNumber = 0;
 let rolesAsigned = 0;
@@ -30,12 +31,14 @@ let rolesAr = [];
 //TODO investigate these variables
 let lastMessageSend = 0;
 let timeBetweenMessages = 15000;
+const pauseEndOfScene = let;
 let screenPosition = 1;
 let soundDirector = 0;
 let blockNewMessages = false;
 let csvSounds = [];
 let totalSampleAudios = 70;
 let colorCounter = 0;
+
 const audio = './audios/CLAIR_DE_LUNE_TIEMPOS004_reduce.csv';
 const guion = './guion_CULTUROPOLIS_1.json';
 
@@ -43,18 +46,18 @@ const guion = './guion_CULTUROPOLIS_1.json';
 // Global methods ************************************************
 // ---------------------------------------------------------------
 
-// Assign random color to actor from color list
+// Assign random color user's chatbubble from color list
 const assignColor = () => {
-  if( colorCounter >= 7 ){
+  if ( colorCounter >= 7 ) {
     colorCounter = 0;
   }
   const colors = ['whitesmoke','lightpink','paleturquoise','peachpuff','LightSteelBlue','SandyBrown','lightgreen'];
   let color = colors[ colorCounter ];
-  colorCounter+= 1;
+  colorCounter++;
   return color;
 }
 
-
+//
 const countMessage = (socket) => {
   messageSceneCounter +=1;
   socket.broadcast.emit('messageSceneCounter', {messageSceneCounter:messageSceneCounter});
@@ -71,7 +74,7 @@ const saveMessage = (data) => {
 }
 
 //loads CSV
-const loadCSV = (file) =>{
+const loadCSV = (file) => {
   let csvData = [];
   fs.createReadStream(file)
     .pipe(parse({delimiter: ','}))
@@ -102,7 +105,7 @@ const sendSceneInformation = (socket) => {
     };
     socket.broadcast.emit('sceneInfo', data);
     socket.emit('sceneInfo', data);
-  }catch(err){
+  } catch(err){
     //TODO add errorhandler
   }
 }
@@ -129,7 +132,7 @@ const getRole = (id) => {
 
 const getSoundRole = (id) => {
   for(let i=0;i<rolesAr.length;i++){
-    if(rolesAr[i].id==id) return rolesAr[i].sound;
+    if(rolesAr[i].id == id) return rolesAr[i].sound;
   }
   return '';
 }
@@ -340,21 +343,25 @@ io.on('connection', function(socket) {
   users.push(me);
 
   console.log("socket connected");
-
+  
+  //TODO this is probably duplicated code
   // socket methods
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
-
+  
+  //TODO check if this event even exist in frontend
   socket.on('logMessage', function (data) {
     console.log(data);
   });
-
+  
+ 
   socket.on('connectMessage', function (data) {
     console.log(data);
     sendSceneInformation(socket);
   });
-
+  
+  //adds additional role to scene
   socket.on('addExtraToScene', function (data) {
     if(objTheaterPlay[sceneNumber].personajesExtra.length>0){
       objTheaterPlay[sceneNumber].personajes.push( objTheaterPlay[sceneNumber].personajesExtra.pop());
@@ -362,18 +369,24 @@ io.on('connection', function(socket) {
     sendSceneInformation(socket);
   });
 
-  // Activate and disactivated
+  // Activate and desactivated
   socket.on('roleAdmin', function (data) {
     try{
       console.log('call role Admin :',rolesAr[data.index].activated);
       rolesAr[data.index].activated = data.activated;
       sendUsers(socket);
-    }catch(err){}
+    }catch(err){
+      console.error(err);
+    }
   })
-
+  
+  //TODO change to publishMessage
+  //Publishes messages and assigns roles on first message by User
   socket.on('publicMessage', function (data) {
+    
     if(blockNewMessages) return;
-
+    
+    //assigns Role
     if( checkIfSocketHasNoneRole(this.id) && objTheaterPlay[sceneNumber].personajes.length>rolesAsigned){
       let nickname = objTheaterPlay[sceneNumber].personajes[rolesAsigned];
       socket.emit('assignActor',nickname);
@@ -386,7 +399,7 @@ io.on('connection', function(socket) {
       sendUsers(socket);
     }
 
-    let currentTimestamp = Date.now();
+    //let currentTimestamp = Date.now();
     let role = getRole(this.id);
     let roleIsActive = getIsRoleActive(this.id);
     let sound = getSoundRole(this.id);
@@ -395,45 +408,47 @@ io.on('connection', function(socket) {
     if(role!="" && roleIsActive){
       console.log('Send text to chat');
       let message = {'id':this.id,'type':'public','message':data, 'from':role,'sound':sound,'color':actorColor};
-      // Send message
+      // Send message to front
       socket.broadcast.emit('newMessage', message );
       socket.emit('newMessage', message );
-      // Store message
+      // Store message in array
       allMessages.push(message);
-      // Save message
       countMessage(socket);
+      // Save message to CSV
       saveMessage(role+" : "+data);
     }
   });
-
+  
+  // messages from the director
   socket.on('directorMessage', function (data) {
     // Send message
-    let messageStr = '('+data+')';
+    let messageStr = `(${data})`;
     let message = {'message':messageStr,'type':'director', 'from':'director','sound':soundDirector};
     socket.broadcast.emit('newMessage', message);
     socket.emit('newMessage', message);
-    // Store message
+    // Store message in array
     allMessages.push(message);
     // Save message
     countMessage(socket);
     saveMessage(messageStr);
   });
 
+  //emits last didaskalia and changes to new scene
   socket.on('changeScene', function (data) {
-    // Enviar frase finals
-    //TODO check display of objTheaterPlay[sceneNumber].frase_final_escena...
+   //TODO check display of objTheaterPlay[sceneNumber].frase_final_escena...
     socket.broadcast.emit('newMessage', {'message':'('+objTheaterPlay[sceneNumber].frase_final_escena+')','type':'director', 'from':'director','sound':soundDirector});
     socket.emit('newMessage', {'message':'('+objTheaterPlay[sceneNumber].frase_final_escena+')', 'type':'director','sound':soundDirector});
+    //blocks users from messaging while director end scene
     blockNewMessages = true;
     sendSceneInformation(socket);
-
-    // After 5s then disable messages
-   //test with 1000
+    //pause so audience can finish reading the scene
     setTimeout(function(){
       changeScene(socket);
-    },1000);
+    },pauseEndOfScene);
   });
-
+  
+  
+  //on disconnect user is deleted from the allClients array.
   socket.on('disconnect', function() {
       console.log('Got disconnect!');
       let i = allClients.indexOf(socket);

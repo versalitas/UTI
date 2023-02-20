@@ -1,12 +1,12 @@
-import React from 'react'
-import './chat.css'
+import React from 'react';
+import './chat.css';
 
 class Chat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: []
-        }
+            messages: [],
+        };
     }
 
     clear() {
@@ -18,27 +18,35 @@ class Chat extends React.Component {
         this.state.messages.push(messagePacket);
         this.forceUpdate();
         // Move scroll to bottom
-        document.getElementById("chat").firstElementChild.lastChild.scrollIntoView();
+        document
+            .getElementById('chat')
+            .firstElementChild.lastChild.scrollIntoView();
     }
 
     render() {
-        
-        let chat = this.state.messages.map(c =>
-            (
-                <li >
-                    {(c.type!='director')?<div className="message" style={{backgroundColor:`${c.color}`}}><p id="sender">{c.from}:</p> {c.message}</div>:<div className="messageDirector">{c.message}</div>}
-                </li>
-            ))
+        let chat = this.state.messages.map((c) => (
+            <li>
+                {c.type != 'director' ? (
+                    <div
+                        className="message"
+                        style={{ backgroundColor: `${c.color}` }}
+                    >
+                        <p id="sender">{c.from}:</p> {c.message}
+                    </div>
+                ) : (
+                    <div className="messageDirector">{c.message}</div>
+                )}
+            </li>
+        ));
 
         return (
-            
-            <div id="chat" ref={(ref) => this._div = ref}>
-              <ul ref="list" id="chatList">
+            <div id="chat" ref={(ref) => (this._div = ref)}>
+                <ul ref="list" id="chatList">
                     {chat}
                 </ul>
             </div>
-        )
+        );
     }
 }
 
-export default Chat
+export default Chat;

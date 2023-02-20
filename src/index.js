@@ -6,4 +6,4 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 //registerServiceWorker();
-console.log('version 0.2')
+console.log('version 0.2');
